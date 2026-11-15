@@ -1,0 +1,10 @@
+INSERT INTO vehicles VALUES (1, 'A123AA', 'Volvo FH', 18.5, TRUE);
+INSERT INTO vehicles VALUES (2, 'B456BB', 'MAN TGX', 16.0, TRUE);
+INSERT INTO shipments VALUES (100, 1, 'Казань', 'Оборудование', 2.75, 2026-05-20, FALSE);
+INSERT INTO shipments VALUES (101, 2, 'Пермь', 'Запчасти', 1.20, 2026-05-21, FALSE);
+SELECT * FROM vehicles;
+SELECT destination, cargo, weight FROM shipments WHERE weight > 2;
+CREATE INDEX idx_shipments_destination ON shipments (destination);
+SELECT id, cargo FROM shipments WHERE destination = 'Казань';
+UPDATE shipments SET delivered = TRUE WHERE id = 100;
+DELETE FROM shipments WHERE delivered = TRUE;
